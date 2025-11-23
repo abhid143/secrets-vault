@@ -28,4 +28,3 @@ docker-compose up --build
 Install deps and run:
 
 pip install -r requirements.txt
-pytest -q
