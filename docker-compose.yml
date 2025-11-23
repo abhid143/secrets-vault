@@ -19,7 +19,7 @@ services:
       - db
     environment:
       - SECRET_ENCRYPTION_KEY=${SECRET_ENCRYPTION_KEY}
-      - DATABASE_URL=postgresql://postgres:Abhi%402283@localhost/secrets_db
+      - DATABASE_URL=postgresql://postgres:Abhi%402283@db:5432/secrets_db
       - JWT_SECRET_KEY=${JWT_SECRET_KEY}
       - JWT_ALGORITHM=${JWT_ALGORITHM}
       - JWT_EXP_MINUTES=${JWT_EXP_MINUTES}
