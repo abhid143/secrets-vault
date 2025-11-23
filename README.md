@@ -29,23 +29,3 @@ Install deps and run:
 
 pip install -r requirements.txt
 pytest -q
-
-
-## Notes & Key Rotation
-- Encryption key used by Fernet must be injected via environment (`SECRET_ENCRYPTION_KEY`) — never hard-coded.
-- Key rotation: add a key-encryption-key (KEK) or store previous keys in a rotation table. To rotate:
-  1. decrypt all records with old key,
-  2. re-encrypt with new key,
-  3. update env/config to new key,
-  4. keep old key until rotation finished & tested.
-
-## Backups & Availability
-- Use Postgres backups (pg_dump, point-in-time recovery) and store encrypted backups.
-- Run DB in multi-AZ or managed RDS with read replicas for availability and failover.
-- Use health checks ( /healthz ) for orchestration.
-
-## Security
-- Do not log secret values or full JWTs.
-- Validate inputs using Pydantic. Reject unexpected fields.
-- Use HTTPS + secure headers in production.
-- Replace in-memory rate limiter with Redis for distributed rate-limiting.
